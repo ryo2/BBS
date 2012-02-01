@@ -1,0 +1,29 @@
+// create table
+
+CREATE TABLE IF NOT EXISTS bbs_topics(
+	id int(5) NOT NULL auto_increment,
+	owner_user_id int(4),
+	title varchar(30),
+	name varchar(10),
+	comment varchar(200),
+	mail varchar(50),
+	delete_flag tinyint(1),
+	created timestamp DEFAULT 0,
+	updated timestamp DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS bbs_comments(
+	id int(5) NOT NULL auto_increment,
+	topic_id int(4),
+	user_id int(4),
+	name varchar(10),
+	comment varchar(200),
+	mail varchar(50),
+	delete_flag tinyint(1),
+	created timestamp DEFAULT 0,
+	updated timestamp DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
